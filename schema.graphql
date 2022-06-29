@@ -1,6 +1,33 @@
-type ExampleEntity @entity {
+type AxoHolder @entity {
   id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+  toTransfer: [Tran!]! @derivedFrom(field: "to")
+  fromTransfer: [Tran!]! @derivedFrom(field: "from")
+  axosHeld: [Axolittle!]! @derivedFrom(field: "owner")
+  firstActiveBlock: BigInt!
+  lastActiveBlock: BigInt!
+}
+
+type Tran @entity {
+  id: ID!
+  from: AxoHolder!
+  to: AxoHolder!
+  token_id: BigInt!
+  blockHeight: BigInt!
+  timestamp: BigInt
+  transaction: TransferTransaction!
+  value: BigInt!
+}
+
+type TransferTransaction @entity {
+  id: ID!
+  transfer: [Tran!]! @derivedFrom(field: "transaction")
+  valueWei: BigInt!
+  valueWrappedWei: BigInt!
+  nTransfers: Int!
+}
+
+type Axolittle @entity {
+  id: ID!
+  owner: AxoHolder!
+  bridgeBlock: BigInt!
 }

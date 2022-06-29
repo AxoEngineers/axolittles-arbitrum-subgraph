@@ -8,6 +8,7 @@ dataSources:
     source:
       address: "0x0E08a10FA94E2e13A667128F43774FB571880263"
       abi: Axolittles
+      startBlock: 14203134
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
