@@ -6,9 +6,9 @@ dataSources:
     name: Axolittles
     network: arbitrum-one
     source:
-      address: "0x0E08a10FA94E2e13A667128F43774FB571880263"
+      address: "0xcC737e05A6B5d94caFA523E55C5689631C8e97A4"
       abi: Axolittles
-      startBlock: 14203134
+      startBlock: 16337600
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
